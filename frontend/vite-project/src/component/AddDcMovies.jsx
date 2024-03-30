@@ -68,7 +68,7 @@ function AddDcMovies() {
     
    
       <div className=" mx-auto max-w-2xl rounded-lg shadow-2xl bg-white m-4 p-4 ">
-      <p className='text-black font-semibold'>Dc Movies Add</p>
+      <p className='text-black font-semibold'>DC Hero Add</p>
         <form onSubmit={handleSubmit} className="space-y-6 pt-10">
           <div>
             <label htmlFor='name' className="block text-sm font-medium text-gray-700">Hero Name</label>
