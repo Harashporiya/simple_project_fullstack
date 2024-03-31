@@ -45,3 +45,8 @@ body{
       transform: rotate(360deg);
     }
 }
+#navbar{
+    position: absolute;
+    z-index: 10;
+    background-color: #000000a7;
+}

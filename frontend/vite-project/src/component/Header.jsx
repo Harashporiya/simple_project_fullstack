@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-
+import './index.css'
 const options = ['DC Universe', 'Marvel Universe'];
 
 function Header() {
@@ -13,9 +13,10 @@ function Header() {
 
   return (
     <>
-      <div className='p-9'>
-        <p className='text-white font-semibold text-3xl p-2'>Hero Hollywood</p>
+      <div id='navbar' className='p-2 flex justify-evenly  w-full'>
+        
         <div>
+        <p className='text-white font-semibold text-3xl p-2'>Hero Hollywood</p>
           <Autocomplete
             value={value}
             onChange={(event, newValue) => {
@@ -78,7 +79,12 @@ function Header() {
             )}
           />
         </div>
+        <div className='pt-4'>
+        <button onClick={()=>navigate("/signup")} className='text-white font-semibold text-2xl bg-blue-700 hover:bg-blue-500 p-4  rounded-xl '>Signup</button>
+        <button onClick={()=>navigate("/login")} className='text-white font-semibold text-2xl bg-blue-700 hover:bg-blue-500 p-4  rounded-xl  ml-7'>Login</button>
+       </div>
       </div>
+     
     </>
   );
 }

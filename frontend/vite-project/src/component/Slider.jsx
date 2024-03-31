@@ -1,60 +1,123 @@
-import React from 'react';
+import React from "react";
+import HeroSlider, { Slide, Nav, Overlay} from "hero-slider";
+import Dc from "./Dc";
+import Header from "./Header";
 
 function Slider() {
+  const handleBeforeSliding = (previousSlide, nextSlide) => {
+    console.debug(
+      "onBeforeSliding(previousSlide, nextSlide): ",
+      previousSlide,
+      nextSlide
+    );
+  };
+
+  const handleAfterSliding = (nextSlide) => {
+    console.debug("onAfterSliding(nextSlide): ", nextSlide);
+  };
+
   return (
-  
+    <div>
+      <Header />
+      <HeroSlider
+        height={"100vh"}
+        autoplay
+        controller={{
+          initialSlide: 1,
+          slidingDuration: 500,
+          slidingDelay: 100,
+          onBeforeSliding: handleBeforeSliding,
+          onAfterSliding: handleAfterSliding,
+        }}
+      >
+        <Overlay>
+          <div className="flex flex-col items-center justify-center h-full bg-gradient-to-b from-transparent to-black text-white">
+            <h1 className="text-6xl w-4/5 text-center font-bold mb-4">
+              Heroic Missteps: Unveiling Superheroes' Least Heroic Moments
+            </h1>
+            <h2 className="text-3xl w-4/5 text-center font-medium mb-2">
+              Exploring the Awkward, Useless, and Detrimental Side of
+              Superheroism
+            </h2>
+            <p className="text-2xl w-4/5 text-center mt-10">
+              Dive into the extraordinary world of superheroes through 'Hero
+              Rank,' where we shed light on those moments when even the
+              mightiest heroes had their fair share of missteps. From comically
+              useless scenes to unintended consequences, join us on a journey of
+              laughter, reflection, and a fresh perspective on the lighter side
+              of heroism. Because even the most powerful beings have their off
+              days!
+            </p>
+          </div>
+        </Overlay>
 
-<div id="indicators-carousel" class="relative w-full" data-carousel="static">
- 
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img src="/docs/images/carousel/carousel-1.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-       
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://cdn.marvel.com/content/1x/002irm_ons_mas_mob_01_0.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-       
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/docs/images/carousel/carousel-3.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
+        <Slide
+          background={{
+            backgroundImage: 'url("https://i.imgur.com/tEvSreU.jpeg")',
+            backgroundAttachment: "fixed",
+          }}
+        ></Slide>
+
+        <Slide
+          background={{
+            backgroundImage:
+              'url("https://wallpapers.com/images/featured/4k-avengers-gx5riyd6eqklm4hf.jpg")',
+            backgroundAttachment: "fixed",
+          }}
+        ></Slide>
+
+        <Slide
+          background={{
+            backgroundImage:
+              'url("https://images3.alphacoders.com/666/666317.jpg")',
+          }}
+        ></Slide>
+
+        <Slide
+          background={{
+            backgroundImage:
+              'url("https://cdn.mos.cms.futurecdn.net/qDe5fSKMdj9WGq67o4Frvd.jpg")',
+          }}
+        ></Slide>
+
+        <Slide
+          background={{
+            backgroundImage:
+              'url("https://sm.ign.com/ign_nordic/lists/t/the-25-bes/the-25-best-marvel-heroes-ever_xb4n.jpg")',
+            backgroundAttachment: "fixed",
+          }}
+        ></Slide>
+
+        <Slide
+          background={{
+            backgroundImage:
+              'url("https://staticg.sportskeeda.com/editor/2023/04/5f3a8-16810185653074-1920.jpg")',
+            backgroundAttachment: "fixed",
+          }}
+        ></Slide>
+
+        <Slide
+          background={{
+            backgroundImage:
+              'url("https://i.pinimg.com/originals/ea/b7/bc/eab7bc257d227a0c2d0b145d9096d17b.jpg")',
+            backgroundAttachment: "fixed",
+          }}
+        ></Slide>
+
+        <Slide
+          background={{
+            backgroundImage:
+              'url("https://wallpapers.com/images/featured/4k-marvel-awrqh8lcgyk3crjc.jpg")',
+            backgroundAttachment: "fixed",
+          }}
+        ></Slide>
       
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/docs/images/carousel/carousel-4.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-    
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/docs/images/carousel/carousel-5.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-    </div>
-  
-    <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-    </div>
-   
-    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
-</div>
 
+        {/* <SideNav /> */}
+        <Nav/>
+      </HeroSlider>
+    
+    </div>
   );
 }
 

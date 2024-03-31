@@ -40,6 +40,28 @@ function Dc() {
     fetchdata();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = Cookies.get("authorization");
+        // console.log(token)
+        const response = await axios.get("http://localhost:5000/user/data", {
+          headers: { authorization: token }
+        });
+        setUserData(response.data);
+      } catch (error) {
+        navigate('/login');
+        console.log("Error", error);
+      }
+    };
+    fetchData();
+  }, [navigate]);
+
+
+
+
+
+
   return (
     <>
       <Header />
