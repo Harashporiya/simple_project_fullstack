@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
+import Header from './Header';
 function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ function Login() {
             setEmail("")
             setPassword("")
             setTimeout(() => {
-                navigate("/heroslider");
+                navigate("/home");
               }, 6000);
         } catch (error) {
             console.log("Error  login", error);
@@ -39,8 +40,9 @@ function Login() {
 
     return (
         <>
-            <div className='bg-white min-h-screen flex justify-center items-center'>
-                <form onSubmit={handleSubmit} className='bg-gray-900 shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+        <Header/>
+            <div className='bg-gray-900 min-h-screen flex justify-center items-center'>
+                <form onSubmit={handleSubmit} className='bg-gray-900 shadow-2xl shadow-sky-900 rounded-2xl px-8 pt-6 pb-8 mb-4'>
 
                     <p className='mb-9 text-white font-semibold text-2xl'>Login to your account</p>
                     <div>
@@ -58,6 +60,7 @@ function Login() {
                             placeholder='Enter your email'
                             id='email'
                             name='email'
+                            required
                             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                         />
                     </div>

@@ -41,5 +41,14 @@ router.post("/login", async(req,res)=>{
         return res.json({message:`${error}`})
     }
 })
+// router.get("/getData",async(req,res)=>{
+//     const token = req.headers.authorization;
+    
+// })
+
+router.delete('/logout', (req, res) => {
+    res.clearCookie('authorization');
+    res.status(200).json({ message: 'Token deleted successfully' });
+});
 
 module.exports = router;

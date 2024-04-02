@@ -1,12 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import './index.css'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Cookies from 'js-cookie';
 function AddMarvelMovies() {
     const [Hero_Name, setHeroname] = useState('');
     const [Real_Name, setRealname] = useState('');
@@ -17,7 +17,7 @@ function AddMarvelMovies() {
     const [Catchphrase, setCatchphrase] = useState('')
     const [Backstory, setBackstory] = useState('');
     const [Most_Useless_Moment, setMost_Useless_Moment] = useState('');
-   
+    const [userData, setUserData] = useState({});
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -62,6 +62,23 @@ function AddMarvelMovies() {
         console.error("fetching error", error);
       }
     };
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const token = Cookies.get("authorization");
+          // console.log(token)
+          const response = await axios.get("http://localhost:5000/user/data", {
+            headers: { authorization: token }
+          });
+          setUserData(response.data);
+        } catch (error) {
+          navigate('/login');
+          console.log("Error", error);
+        }
+      };
+      fetchData();
+    }, [navigate]);
   
     return (
       <>

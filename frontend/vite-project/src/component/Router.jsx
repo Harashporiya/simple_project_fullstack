@@ -7,7 +7,7 @@ import Marvel from './Marvel';
 import AddMarvelMovies from './AddMarvelMovies';
 import Signup from './Signup';
 import Login from './Login';
-import Slider from './Slider';
+import Home from './Home';
 
 function Router() {
   return (
@@ -21,7 +21,7 @@ function Router() {
         <Route path='/addmarvelmovies' element={<AddMarvelMovies/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/heroslider' element={<Slider/>}/>
+        <Route path='/home' element={<Home/>}/>
     </Routes>
     </BrowserRouter>
       

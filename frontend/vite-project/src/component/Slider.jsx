@@ -2,7 +2,8 @@ import React from "react";
 import HeroSlider, { Slide, Nav, Overlay} from "hero-slider";
 import Dc from "./Dc";
 import Header from "./Header";
-
+import { Link } from "react-router-dom";
+import './index.css'
 function Slider() {
   const handleBeforeSliding = (previousSlide, nextSlide) => {
     console.debug(
@@ -41,7 +42,7 @@ function Slider() {
             </h2>
             <p className="text-2xl w-4/5 text-center mt-10">
               Dive into the extraordinary world of superheroes through 'Hero
-              Rank,' where we shed light on those moments when even the
+              Hollywood,' where we shed light on those moments when even the
               mightiest heroes had their fair share of missteps. From comically
               useless scenes to unintended consequences, join us on a journey of
               laughter, reflection, and a fresh perspective on the lighter side
@@ -116,7 +117,14 @@ function Slider() {
         {/* <SideNav /> */}
         <Nav/>
       </HeroSlider>
-    
+      <div className="w-full">
+      <h1 className="text-white text-center m-10 font-bold italic text-4xl">Choose Your Universe</h1>
+      <div className={`h-full mx-auto  my-10 w-4/5  items-center transition-all duration-1000 flex justify-around`}>
+            <Link to={"/marvel"}><img id="img" className="rounded-xl" src="https://www.xenoshogun.com/wp-content/uploads/2022/09/YOBC43EICVDCDA4IFY6SSCYIII.jpeg" alt="" /></Link>
+            <Link to={"/dc"}><img id="img1" className="rounded-xl" src="https://www.rollingstone.com/wp-content/uploads/2018/06/justice-league-0bc218d8-2ea7-4fb9-b189-ce1c760290c7.jpg?w=1280&h=880&crop=1" alt="" /></Link>
+           
+      </div>
+    </div>
     </div>
   );
 }

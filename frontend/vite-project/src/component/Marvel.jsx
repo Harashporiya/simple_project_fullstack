@@ -6,9 +6,11 @@ import Header from './Header';
 
 
 
+
 function Dc() {
   const [data, setData] = useState();
   const [data1, setData1] = useState();
+
 
 
   const navigate = useNavigate();
@@ -40,32 +42,11 @@ function Dc() {
     fetchdata();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = Cookies.get("authorization");
-        // console.log(token)
-        const response = await axios.get("http://localhost:5000/user/data", {
-          headers: { authorization: token }
-        });
-        setUserData(response.data);
-      } catch (error) {
-        navigate('/login');
-        console.log("Error", error);
-      }
-    };
-    fetchData();
-  }, [navigate]);
-
-
-
-
-
-
+ 
   return (
     <>
       <Header />
-      <div className='flex flex-wrap pt-2 justify-center '>
+      <div className='flex flex-wrap pt-28 justify-center '>
 
         {data && data.map((datas) => (
           <div id='card' className='rounded-lg shadow-2xl bg-white m-4 ' key={datas.id}>
@@ -108,6 +89,8 @@ function Dc() {
           <button onClick={() => navigate("/addmarvelmovies")} className='bg-blue-600 text-2xl p-8 rounded-sm text-white '>+</button>
         </div>
       </div>
+
+      
     </>
   );
 }

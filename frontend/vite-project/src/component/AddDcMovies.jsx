@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-
+import React, { useState , useEffect} from 'react';
+import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import './index.css'
 
@@ -17,7 +17,7 @@ function AddDcMovies() {
   const [Catchphrase, setCatchphrase] = useState('')
   const [Backstory, setBackstory] = useState('');
   const [Most_Useless_Moment, setMost_Useless_Moment] = useState('');
- 
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,6 +62,24 @@ function AddDcMovies() {
       console.error("fetching error", error);
     }
   };
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = Cookies.get("authorization");
+        // console.log(token)
+        const response = await axios.get("http://localhost:5000/user/data", {
+          headers: { authorization: token }
+        });
+        setUserData(response.data);
+      } catch (error) {
+        navigate('/login');
+        console.log("Error", error);
+      }
+    };
+    fetchData();
+  }, [navigate]);
 
   return (
     <>

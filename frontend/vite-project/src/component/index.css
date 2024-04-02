@@ -50,3 +50,9 @@ body{
     z-index: 10;
     background-color: #000000a7;
 }
+#img, #img1{
+    width: 400px;
+    height: 300px;
+}
+
+  
