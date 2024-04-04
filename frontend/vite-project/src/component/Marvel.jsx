@@ -3,14 +3,14 @@ import axios from 'axios';
 import './index.css';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
-
+import Loader from './Loader';
 
 
 
 function Dc() {
   const [data, setData] = useState();
   const [data1, setData1] = useState();
-
+  const [loader, setLoading] = useState(true); 
 
 
   const navigate = useNavigate();
@@ -23,7 +23,12 @@ function Dc() {
         console.log(response.data);
       } catch (error) {
         console.error("Error:", error);
-      }
+      } finally {
+       
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+      } 
     };
 
     fetchData();
@@ -46,6 +51,7 @@ function Dc() {
   return (
     <>
       <Header />
+      {loader ? <Loader/> : null} 
       <div className='flex flex-wrap pt-28 justify-center '>
 
         {data && data.map((datas) => (

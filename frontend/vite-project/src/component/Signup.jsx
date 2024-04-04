@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie'
 import Header from './Header';
+import Navbar from "./Navbar"
 function Signup() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -42,7 +43,8 @@ function Signup() {
 
     return (
         <>
-        <Header/>
+        {/* <Header/> */}
+        <Navbar/>
             <div className='bg-gray-900 min-h-screen flex justify-center items-center'>
                 <form onSubmit={handleSubmit} className='bg-gray-900  shadow-2xl shadow-sky-900 rounded-2xl px-8 pt-6 pb-8 mb-4'>
                 <p className='text-white mb-4 font-semibold text-2xl'>Signup to create an account</p>
